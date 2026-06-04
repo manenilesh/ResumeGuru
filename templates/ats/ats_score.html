@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<h2>ATS Score Checker</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label>Paste Resume Text</label>
+        <textarea name="resume_text" class="form-control" rows="8" required></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label>Paste Job Description</label>
+        <textarea name="job_description" class="form-control" rows="8" required></textarea>
+    </div>
+
+    <button class="btn btn-warning">Check ATS Score</button>
+</form>
+
+{% if score is not None %}
+    <div class="alert alert-success mt-4">
+        <h4>Your ATS Score: {{ score }}%</h4>
+    </div>
+{% endif %}
+
+{% endblock %}

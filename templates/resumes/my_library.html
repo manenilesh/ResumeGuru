@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<h2>My Resume Library</h2>
+
+{% if resumes %}
+
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Template</th>
+            <th>Created</th>
+            <th>View</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for resume in resumes %}
+        <tr>
+            <td>{{ resume.title }}</td>
+            <td>{{ resume.template }}</td>
+            <td>{{ resume.created_at }}</td>
+            <td>
+                <a href="{% url 'view_resume' resume.id %}" class="btn btn-sm btn-primary">
+                    View
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+
+<p>You have not created any resume yet.</p>
+<a href="{% url 'create_resume' %}" class="btn btn-primary">Create Resume</a>
+
+{% endif %}
+
+{% endblock %}
+
+

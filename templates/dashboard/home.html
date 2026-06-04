@@ -1,0 +1,62 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<div class="hero-card">
+    <h2>Welcome to ResumeGuru, {{ request.user.username }}</h2>
+    <p>Create professional resumes, manage your library, and check your ATS score.</p>
+</div>
+
+<div class="dashboard-grid">
+
+    <div class="dashboard-card">
+        <h4>Create Resume</h4>
+        <p>Build a professional resume using structured fields and templates.</p>
+        <a href="{% url 'create_resume' %}" class="primary-btn d-block text-center">
+            Create Resume
+        </a>
+    </div>
+
+    <div class="dashboard-card">
+        <h4>My Library</h4>
+        <p>View, manage, and download all resumes created by you.</p>
+        <a href="{% url 'my_library' %}" class="primary-btn d-block text-center">
+            Open Library
+        </a>
+    </div>
+
+    <div class="dashboard-card">
+        <h4>ATS Score</h4>
+        <p>Compare your resume text with job description keywords.</p>
+        <a href="{% url 'ats_score' %}" class="primary-btn d-block text-center">
+            Check Score
+        </a>
+    </div>
+
+    <div class="dashboard-card">
+        <h4>Templates</h4>
+        <p>Explore classic, modern, and professional resume layouts.</p>
+        <a href="{% url 'resume_templates' %}" class="primary-btn d-block text-center">
+            View Templates
+        </a>
+    </div>
+
+    <div class="dashboard-card">
+        <h4>Samples</h4>
+        <p>Check sample resumes for developer, admin, and DevOps roles.</p>
+        <a href="{% url 'resume_samples' %}" class="primary-btn d-block text-center">
+            View Samples
+        </a>
+    </div>
+
+    <div class="dashboard-card">
+        <h4>Logout</h4>
+        <p>Safely logout from your ResumeGuru account.</p>
+        <a href="{% url 'logout' %}" class="secondary-btn d-block text-center">
+            Logout
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

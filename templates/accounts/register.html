@@ -1,0 +1,76 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="auth-page">
+
+    <div class="auth-visual">
+        <div class="auth-visual-content">
+
+            <h1>Create Your Free Account</h1>
+
+            <p>
+                Start building professional resumes with ResumeGuru. Choose templates,
+                save your resumes, and improve your ATS score.
+            </p>
+
+            <ul class="auth-feature-list">
+                <li>Create unlimited resume drafts</li>
+                <li>Use modern and professional templates</li>
+                <li>Store resumes securely in My Library</li>
+                <li>Export resume as PDF</li>
+            </ul>
+
+            <img src="{% static 'images/resume-hero.png' %}" class="auth-hero-img" alt="Resume Builder">
+
+        </div>
+    </div>
+
+    <div class="auth-side-card">
+
+        <div class="auth-card">
+
+            <h2>Create ResumeGuru Account</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label class="form-label">Username</label>
+                    <input type="text" name="username" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" name="confirm_password" class="form-control" required>
+                </div>
+
+                <button type="submit" class="primary-btn w-100">
+                    Register
+                </button>
+
+            </form>
+
+            <p class="mt-3 text-center">
+                Already have an account?
+                <a href="{% url 'login' %}">Login here</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

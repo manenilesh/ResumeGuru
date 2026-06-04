@@ -1,0 +1,64 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>{{ resume.title }}</h2>
+
+    <div>
+        <a href="{% url 'download_resume_pdf' resume.id %}" class="btn btn-success">
+            Download PDF
+        </a>
+
+        <a href="{% url 'my_library' %}" class="btn btn-secondary">
+            Back to Library
+        </a>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body p-5">
+
+        <div class="text-center border-bottom pb-3 mb-4">
+            <h1>{{ resume.full_name }}</h1>
+            <p class="text-muted">
+                {{ resume.email }} |
+                {{ resume.phone }}
+            </p>
+
+            {% if resume.address %}
+                <p>{{ resume.address }}</p>
+            {% endif %}
+        </div>
+
+        <div class="mb-4">
+            <h4>Professional Summary</h4>
+            <p>{{ resume.summary|linebreaks }}</p>
+        </div>
+
+        <div class="mb-4">
+            <h4>Skills</h4>
+            <p>{{ resume.skills|linebreaks }}</p>
+        </div>
+
+        <div class="mb-4">
+            <h4>Experience</h4>
+            <p>{{ resume.experience|linebreaks }}</p>
+        </div>
+
+        <div class="mb-4">
+            <h4>Education</h4>
+            <p>{{ resume.education|linebreaks }}</p>
+        </div>
+
+        {% if resume.projects %}
+        <div class="mb-4">
+            <h4>Projects</h4>
+            <p>{{ resume.projects|linebreaks }}</p>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="auth-page">
+
+    <!-- Left Side Feature Panel -->
+    <div class="auth-visual">
+        <div class="auth-visual-content">
+
+            <h1>Build Your Resume Faster</h1>
+
+            <p>
+                ResumeGuru helps you create professional resumes, manage your
+                resume library, and check ATS score from one simple dashboard.
+            </p>
+
+            <ul class="auth-feature-list">
+                <li>Professional resume templates</li>
+                <li>Save resumes in your personal library</li>
+                <li>Download resume as PDF</li>
+                <li>Check ATS keyword score</li>
+            </ul>
+
+            <img src="{% static 'images/resume-hero.png' %}" class="auth-hero-img" alt="ResumeGuru Resume Builder">
+
+        </div>
+    </div>
+
+    <!-- Right Side Login + Samples -->
+    <div class="auth-right-area">
+
+        <div class="auth-side-card">
+
+            <div class="auth-card">
+
+                <h2>Login to ResumeGuru</h2>
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+
+                    <button type="submit" class="primary-btn w-100">
+                        Login
+                    </button>
+
+                </form>
+
+                <p class="mt-3 text-center">
+                    New user?
+                    <a href="{% url 'register' %}">Create account</a>
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="login-samples-section">
+
+            <h4>Explore Resume Samples</h4>
+            <p>View professional resume examples before creating your account.</p>
+
+            <div class="login-sample-grid">
+
+                <a href="{% url 'resume_samples' %}" class="login-sample-card">
+                    <div class="sample-icon blue"></div>
+                    <div>
+                        <h5>Python Developer</h5>
+                        <span>Django, MySQL, REST API</span>
+                    </div>
+                </a>
+
+                <a href="{% url 'resume_samples' %}" class="login-sample-card">
+                    <div class="sample-icon green"></div>
+                    <div>
+                        <h5>DevOps Engineer</h5>
+                        <span>Docker, Jenkins, Kubernetes</span>
+                    </div>
+                </a>
+
+                <a href="{% url 'resume_samples' %}" class="login-sample-card">
+                    <div class="sample-icon purple"></div>
+                    <div>
+                        <h5>System Administrator</h5>
+                        <span>Linux, Windows Server, Network</span>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

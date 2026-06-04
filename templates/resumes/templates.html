@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<h2>Resume Templates</h2>
+
+<div class="row mt-4">
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h4>Classic Template</h4>
+                <p>Simple and clean resume layout.</p>
+                <a href="{% url 'create_resume' %}" class="btn btn-primary">Use Template</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h4>Modern Template</h4>
+                <p>Modern layout for IT and corporate jobs.</p>
+                <a href="{% url 'create_resume' %}" class="btn btn-primary">Use Template</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h4>Professional Template</h4>
+                <p>Formal template for experienced professionals.</p>
+                <a href="{% url 'create_resume' %}" class="btn btn-primary">Use Template</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

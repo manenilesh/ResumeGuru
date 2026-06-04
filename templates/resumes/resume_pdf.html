@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            color: #222;
+            line-height: 1.5;
+        }
+
+        .resume-box {
+            padding: 25px;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #222;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 26px;
+            color: #111;
+        }
+
+        .contact {
+            font-size: 11px;
+            margin-top: 6px;
+        }
+
+        .section {
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 15px;
+            color: #111;
+            border-bottom: 1px solid #999;
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .section p {
+            margin: 0;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="resume-box">
+
+    <div class="header">
+        <h1>{{ resume.full_name }}</h1>
+
+        <div class="contact">
+            {{ resume.email }} |
+            {{ resume.phone }}
+            {% if resume.address %}
+                | {{ resume.address }}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Professional Summary</h3>
+        <p>{{ resume.summary }}</p>
+    </div>
+
+    <div class="section">
+        <h3>Skills</h3>
+        <p>{{ resume.skills }}</p>
+    </div>
+
+    <div class="section">
+        <h3>Experience</h3>
+        <p>{{ resume.experience }}</p>
+    </div>
+
+    <div class="section">
+        <h3>Education</h3>
+        <p>{{ resume.education }}</p>
+    </div>
+
+    {% if resume.projects %}
+    <div class="section">
+        <h3>Projects</h3>
+        <p>{{ resume.projects }}</p>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
